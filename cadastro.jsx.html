@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Cadastro</h1>
+        <form id="cadastroForm">
+            <div class="form-group">
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+            </div>
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="altura">Altura (em cm):</label>
+                <input type="number" id="altura" name="altura" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso (em kg):</label>
+                <input type="number" id="peso" name="peso" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="mostrarDados()">Cadastrar</button>
+            </div>
+        </form>
+        <div class="message" id="mensagem"></div>
+    </div>
+
+    <script>
+        function mostrarDados() {
+            // Obter dados do formulário
+            const nomeCompleto = document.getElementById('nomeCompleto').value;
+            const dataNascimento = document.getElementById('dataNascimento').value;
+            const email = document.getElementById('email').value;
+            const altura = document.getElementById('altura').value;
+            const peso = document.getElementById('peso').value;
+
+            // Criar a mensagem com os dados
+            const mensagem = `
+                Nome Completo: ${nomeCompleto}<br>
+                Data de Nascimento: ${dataNascimento}<br>
+                Email: ${email}<br>
+                Altura: ${altura} cm<br>
+                Peso: ${peso} kg
+            `;
+
+            // Exibir a mensagem
+            document.getElementById('mensagem').innerHTML = mensagem;
+
+            // Alternativamente, você pode usar um alerta para exibir os dados:
+            // alert(mensagem);
+        }
+    </script>
+</body>
+</html>
